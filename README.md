@@ -5,6 +5,8 @@ In this app you will find different ways of navigation like navigation drawer an
 
 # Screenshots
 
+Different navigation types: custom, navigation drawer and bottom bar 
+
 <img src="screenshots/screenshot-1.png" height="400" alt="Screenshot"/> 
 <img src="screenshots/screenshot-2.png" height="400" alt="Screenshot"/>
 <img src="screenshots/screenshot-3.png" height="400" alt="Screenshot"/>
