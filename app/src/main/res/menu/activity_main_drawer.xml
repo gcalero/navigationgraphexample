@@ -5,14 +5,14 @@
 
     <group android:checkableBehavior="single">
 
-        <item android:id="@+id/nav_drawer_home"
+        <item android:id="@+id/homeFragment"
             android:icon="@drawable/ic_home_24dp"
             android:title="@string/home" />
-        <item android:id="@+id/nav_drawer_arrows"
+        <item android:id="@+id/firstFragment"
             android:icon="@drawable/ic_both_arrows_24dp"
             android:title="@string/arrows" />
         <item
-            android:id="@+id/nav_drawer_playstop"
+            android:id="@+id/playFragment"
             android:icon="@drawable/ic_stop_24dp"
             android:title="@string/play_stop" />
     </group>

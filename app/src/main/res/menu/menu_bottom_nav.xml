@@ -4,11 +4,11 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_arrows"
+        <item android:id="@+id/firstFragment"
             android:icon="@drawable/ic_both_arrows_24dp"
             android:title="@string/arrows" />
         <item
-            android:id="@+id/nav_play_stop"
+            android:id="@+id/playFragment"
             android:icon="@drawable/ic_stop_24dp"
             android:title="@string/play_stop" />
     </group>

@@ -80,37 +80,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.nav_drawer_home:
-                while (mNavController.navigateUp()){}
-                mNavController.navigate(R.id.homeFragment);
-                mDrawerLayout.closeDrawers();
+            case R.id.homeFragment:
+                NavigationUI.onNavDestinationSelected(menuItem, mNavController);
                 break;
-            case R.id.nav_drawer_arrows:
-                // this is needed to keep the bottom bar in sync
-                mBottomNavView.setSelectedItemId(R.id.nav_arrows);
+            case R.id.firstFragment:
+                NavigationUI.onNavDestinationSelected(menuItem, mNavController);
                 break;
-            case R.id.nav_drawer_playstop:
-                // this is needed to keep the bottom bar in sync
-                mBottomNavView.setSelectedItemId(R.id.nav_play_stop);
-                break;
-            case R.id.nav_arrows:
-                Log.d(TAG, "onNavigationItemSelected: nav_arrows" );
-                while (mNavController.navigateUp()){}
-                mNavController.navigate(R.id.action_arrows);
-                mNavigationView.setCheckedItem(R.id.nav_drawer_arrows);
-                mDrawerLayout.closeDrawers();
-                break;
-            case R.id.nav_play_stop:
-                Log.d(TAG, "onNavigationItemSelected: nav_play_stop" );
-                while (mNavController.navigateUp()){}
-                mNavController.navigate(R.id.action_playstop);
-                mNavigationView.setCheckedItem(R.id.nav_drawer_playstop);
-                mDrawerLayout.closeDrawers();
+            case R.id.playFragment:
+                NavigationUI.onNavDestinationSelected(menuItem, mNavController);
                 break;
             default:
-                    Log.d(TAG,"Unknown navigation item selected " + menuItem.getItemId());
-
-
+                    Log.w(TAG,"Unknown navigation item selected " + menuItem.getItemId());
         }
         return true;
     }
@@ -121,27 +101,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void menuOptionSelected(View view) {
         // Clean the back stack
-        while (mNavController.navigateUp()) {}
-
         switch (view.getId()) {
             case R.id.arrows:
-                // This is needed to keep bottom bar synced when user enters through home fragment or navigation drawer
-                mBottomNavView.setSelectedItemId(R.id.nav_arrows);
+                mBottomNavView.setSelectedItemId(R.id.firstFragment);
                 break;
             case R.id.play:
-                mBottomNavView.setSelectedItemId(R.id.nav_play_stop);
+                mBottomNavView.setSelectedItemId(R.id.playFragment);
                 break;
             default:
-                    Log.d(TAG,"Unknown menu option selected " + view.getId());
+                Log.d(TAG,"Unknown menu option selected " + view.getId());
         }
     }
 
     @Override
     public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-        Log.d(TAG, "onDestinationChanged");
         if (destination.getId() == R.id.homeFragment) {
             mBottomNavView.setVisibility(View.GONE);
-            mNavigationView.setCheckedItem(R.id.nav_drawer_home);
         } else {
             mBottomNavView.setVisibility(View.VISIBLE);
         }
