@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/backToFirst"
+        android:contentDescription="@string/third"
         android:onClick="forwardToThird"/>
 
     <ImageView
@@ -27,5 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/third"
+        android:contentDescription="@string/first"
         android:onClick="backwardArrow"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
