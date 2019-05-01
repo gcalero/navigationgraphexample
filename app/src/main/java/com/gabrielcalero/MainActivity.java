@@ -1,5 +1,9 @@
 package com.gabrielcalero;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,15 +14,10 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener, NavController.OnDestinationChangedListener {
+public class MainActivity extends AppCompatActivity implements NavController.OnDestinationChangedListener {
 
     private static final String TAG = MainActivity.class.getName();
     private Toolbar mToolbar;
@@ -49,9 +48,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationUI.setupWithNavController(mToolbar, mNavController, mDrawerLayout);
         NavigationUI.setupWithNavController(mNavigationView, mNavController);
         NavigationUI.setupWithNavController(mBottomNavView, mNavController);
-        mNavigationView.setNavigationItemSelectedListener(this);
-        mBottomNavView.setOnNavigationItemSelectedListener(this);
-
         mNavController.addOnDestinationChangedListener(this);
     }
 
@@ -75,28 +71,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void stop(View view) {
         mNavController.navigateUp();
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case R.id.homeFragment:
-                NavigationUI.onNavDestinationSelected(menuItem, mNavController);
-                break;
-            case R.id.firstFragment:
-                NavigationUI.onNavDestinationSelected(menuItem, mNavController);
-                break;
-            case R.id.playFragment:
-                NavigationUI.onNavDestinationSelected(menuItem, mNavController);
-                break;
-            default:
-                    Log.w(TAG,"Unknown navigation item selected " + menuItem.getItemId());
-        }
-        return true;
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
     }
 
     public void menuOptionSelected(View view) {
