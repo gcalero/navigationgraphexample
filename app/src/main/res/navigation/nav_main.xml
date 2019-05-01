@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.gabrielcalero.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_arrows"
+            app:destination="@id/firstFragment" />
+        <action
+            android:id="@+id/action_playstop"
+            app:destination="@id/playFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.gabrielcalero.FirstFragment"
+        android:label="@string/first"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_second"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.gabrielcalero.SecondFragment"
+        android:label="@string/second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_forward_third"
+            app:destination="@id/thirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.gabrielcalero.ThirdFragment"
+        android:label="@string/third"
+        tools:layout="@layout/fragment_third" />
+
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.gabrielcalero.PlayFragment"
+        android:label="@string/play"
+        tools:layout="@layout/fragment_play" >
+        <action
+            android:id="@+id/action_play"
+            app:destination="@id/stopFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stopFragment"
+        android:name="com.gabrielcalero.StopFragment"
+        android:label="@string/stop"
+        tools:layout="@layout/fragment_stop" />
+</navigation>

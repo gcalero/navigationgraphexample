@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NavigationGraphExample</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="arrows">Arrows</string>
+    <string name="play_stop">Play / Stop</string>
+    <string name="first">First</string>
+    <string name="second">Second</string>
+    <string name="third">Third</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+</resources>
